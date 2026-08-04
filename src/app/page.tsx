@@ -27,6 +27,7 @@ import {
 import ShareRewardSection from "@/components/ShareRewardSection";
 import FaqSection from "@/components/FAQsection";
 import OpportunityCTA from "@/components/OpportunityCTA";
+import Footer from "@/components/footer";
 
 // Card data — edit copy/images here, no JSX repeated 3 times below
 const cards = [
@@ -135,18 +136,18 @@ const featureCards = [
 
 export default function Home() {
 
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
+const [api, setApi] = React.useState<CarouselApi>();
+const [current, setCurrent] = React.useState(0);
 
-  // Dot count comes straight from the data array — no dependency on embla's
-  // async measurement timing, so it can never render the wrong number of dots.
-  const dotCount = cards.length;
+// Dot count comes straight from the data array — no dependency on embla's
+// async measurement timing, so it can never render the wrong number of dots.
+const dotCount = cards2.length;
 
-  React.useEffect(() => {
-    if (!api) return;
-    setCurrent(api.selectedScrollSnap());
-    api.on("select", () => setCurrent(api.selectedScrollSnap()));
-  }, [api]);
+React.useEffect(() => {
+  if (!api) return;
+  setCurrent(api.selectedScrollSnap());
+  api.on("select", () => setCurrent(api.selectedScrollSnap()));
+}, [api]);
 
   return (
     <div>
@@ -325,8 +326,8 @@ export default function Home() {
       <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
         {/* Top row: heading + paragraph, button (tablet/desktop only) */}
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
-          <div className="max-w-[400px] lg:max-w-[500px]">
-            <h1 className=" text-white/70 leading-none">
+          <div className="max-w-[300px] lg:max-w-[500px]">
+            <h1 className="text-[36px] lg:text-[60px] font-medium text-white/70 leading-none">
               Lemvest is for you <span className="text-white">if your are...</span> 
             </h1>
           </div>
@@ -385,20 +386,20 @@ export default function Home() {
 
    <section className="py-16 sm:py-20 lg:py-28">
       <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
-        <h2 className="text-center text-2xl font-semibold text-white sm:text-3xl lg:text-4xl xl:text-5xl">
-          Much more than just <br className="hidden sm:block" /> a trading group
+        <h2 className="text-center text-[36px] font-medium text-white/40 md:text-[40px] xl:text-[60px] max-w-[500px] xl:max-w-[600px] leading-none mx-auto">
+          Much more than just {" "} <span className="text-white">a trading group</span> 
         </h2>
 
         {/* md and up: single fluid grid — first 6 items span 2/6 cols (3 per row),
             last 2 items span 3/6 cols (2 per row), row 3 cards are taller */}
-        <div className="mt-10 hidden md:grid md:grid-cols-6 md:gap-6 lg:mt-14 lg:gap-8">
+        <div className="mt-10 hidden md:grid md:grid-cols-4 lg:grid-cols-6 md:gap-6 lg:mt-14 lg:gap-8">
           {cards2.map((card, index) => {
             const isWideRow = index >= 6; // last 2 cards → taller row
             return (
               <div
                 key={card.id}
                 className={`${
-                  isWideRow ? "md:col-span-3" : "md:col-span-2"
+                  isWideRow ? "md:col-span-2 lg:col-span-3" : "md:col-span-2 lg:-col-span-2"
                 } ${
                   isWideRow
                     ? "md:h-[386px] lg:h-[420px] xl:h-[445px]"
@@ -431,76 +432,75 @@ export default function Home() {
           })}
         </div>
 
-        {/* Below md: carousel — all cards, "start" aligned, size adjusts to viewport */}
         <div className="mt-10 md:hidden">
-          <Carousel setApi={setApi} opts={{ align: "start" }} className="w-full">
-            <CarouselContent className="-ml-4">
-              {cards2.map((card) => (
-                <CarouselItem key={card.id} className="basis-[85%] pl-4 sm:basis-1/2">
-                  <div className="flex h-[320px] flex-col rounded-2xl border border-white/5 bg-[#191919]">
-                    {/* Image wrapper — same fill + object-cover treatment */}
-                    <div className="relative m-4 flex-1 overflow-hidden rounded-xl">
-                      <Image
-                        src={card.image}
-                        alt={card.alt}
-                        fill
-                        className="object-cover"
-                        sizes="85vw"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-2 px-5 pb-5">
-                      <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-                        {card.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed text-white/60">
-                        {card.description}
-                      </p>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-
-            {/* Prev arrow — dots — Next arrow, all in one row.
-                Arrows get a mint-green ring on hover / focus / active, matching Figma */}
-            <div className="mt-6 flex items-center justify-center gap-4">
-              <CarouselPrevious
-                className="
-                  static left-0 top-0 translate-y-0
-                  border-white/20 text-white
-                  transition-colors duration-200
-                  hover:border-emerald-400 hover:bg-transparent hover:text-emerald-400
-                  focus-visible:border-emerald-400 focus-visible:text-emerald-400
-                  active:border-emerald-400 active:text-emerald-400
-                "
-              />
-              <div className="flex items-center gap-2">
-                {Array.from({ length: dotCount }).map((_, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    aria-label={`Go to slide ${index + 1}`}
-                    onClick={() => api?.scrollTo(index)}
-                    className={`h-2 w-2 rounded-full transition-colors ${
-                      current === index ? "bg-emerald-400" : "bg-white/20"
-                    }`}
-                  />
-                ))}
-              </div>
-              <CarouselNext
-                className="
-                  static left-0 top-0 translate-y-0
-                  border-white/20 text-white
-                  transition-colors duration-200
-                  hover:border-emerald-400 hover:bg-transparent hover:text-emerald-400
-                  focus-visible:border-emerald-400 focus-visible:text-emerald-400
-                  active:border-emerald-400 active:text-emerald-400
-                "
-              />
-            </div>
-          </Carousel>
+      <Carousel
+  setApi={setApi}
+  opts={{ align: "start", containScroll: false }}
+  className="w-full"
+>
+  <CarouselContent className="-ml-4">
+    {cards2.map((card) => (
+      <CarouselItem key={card.id} className="basis-[85%] pl-4 sm:basis-1/2">
+        <div className="flex h-[320px] flex-col rounded-2xl border border-white/5 bg-[#191919]">
+          <div className="relative m-4 flex-1 overflow-hidden rounded-xl">
+            <Image
+              src={card.image}
+              alt={card.alt}
+              fill
+              className="object-cover"
+              sizes="85vw"
+            />
+          </div>
+          <div className="flex flex-col gap-2 px-5 pb-5">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
+              {card.title}
+            </h3>
+            <p className="text-sm leading-relaxed text-white/60">
+              {card.description}
+            </p>
+          </div>
         </div>
+      </CarouselItem>
+    ))}
+  </CarouselContent>
 
+  <div className="mt-6 flex items-center justify-center gap-4">
+    <CarouselPrevious
+      className="
+        static left-0 top-0 translate-y-0
+        border-white/20 text-white
+        transition-colors duration-200
+        hover:border-emerald-400 hover:bg-transparent hover:text-emerald-400
+        focus-visible:border-emerald-400 focus-visible:text-emerald-400
+        active:border-emerald-400 active:text-emerald-400
+      "
+    />
+    <div className="flex items-center gap-1">
+      {Array.from({ length: dotCount }).map((_, index) => (
+        <button
+          key={index}
+          type="button"
+          aria-label={`Go to slide ${index + 1}`}
+          onClick={() => api?.scrollTo(index)}
+          className={`h-2 w-2 shrink-0 rounded-full transition-colors ${
+            current === index ? "bg-emerald-400" : "bg-white/20"
+          }`}
+        />
+      ))}
+    </div>
+    <CarouselNext
+      className="
+        static left-0 top-0 translate-y-0
+        border-white/20 text-white
+        transition-colors duration-200
+        hover:border-emerald-400 hover:bg-transparent hover:text-emerald-400
+        focus-visible:border-emerald-400 focus-visible:text-emerald-400
+        active:border-emerald-400 active:text-emerald-400
+      "
+    />
+  </div>
+</Carousel>
+    </div>
         {/* Join Lemvest — hamesha grid/carousel k neeche, har breakpoint pe */}
         <div className="mt-10 flex justify-center sm:mt-12 lg:mt-14">
           <Button>Join Lemvest</Button>
@@ -515,85 +515,79 @@ export default function Home() {
 </section>
 
 {/* -------------------------------- Section 5 -------------------------------- */}
-      <section className="bg-[#090909] py-16 sm:py-20 lg:py-28">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
-          <h2 className="text-center text-2xl font-semibold text-white sm:text-3xl lg:text-4xl xl:text-5xl">
-            Free but precious
-          </h2>
+<section className="bg-[#090909] py-16 sm:py-20 lg:py-28">
+  <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
+    <h2 className="text-center font-aeonik font-medium tracking-tight text-white text-[36px] lg:text-[40px] xl:text-[60px]">
+      Free but precious
+    </h2>
 
-          {/* 2 cols on mobile, 3 cols from md up — no separate desktop/mobile markup needed */}
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 md:gap-6 lg:mt-14">
-            {featureCards.map((card) => {
-              const Icon = card.icon;
-              return (
-                <div
-                  key={card.id}
-                  className={`group flex items-center gap-3 rounded-[20px] border p-5 transition-colors duration-300 sm:gap-4 sm:p-6 ${
-                    card.highlighted
-                      ? "border-transparent bg-[#6CF5C2]"
-                      : "border-white/[0.08] bg-[#171717] hover:border-transparent hover:bg-[#6CF5C2]"
-                  }`}
-                >
-                  <span
-                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors duration-300 sm:h-10 sm:w-10 ${
-                      card.highlighted
-                        ? "bg-black/10 text-black"
-                        : "bg-[#6CF5C2]/10 text-[#6CF5C2] group-hover:bg-black/10 group-hover:text-black"
-                    }`}
-                  >
-                    <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
-                  </span>
-                  <h3
-                    className={`text-xs font-semibold transition-colors duration-300 sm:text-base ${
-                      card.highlighted
-                        ? "text-black"
-                        : "text-white group-hover:text-black"
-                    }`}
-                  >
-                    {card.label}
-                  </h3>
-                </div>
-              );
-            })}
+    {/* 2 cols on mobile, 3 cols from md up */}
+    <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 md:gap-6 lg:mt-14 lg:gap-7">
+      {featureCards.map((card) => {
+        const Icon = card.icon;
+        return (
+          <div
+            key={card.id}
+            className="group flex items-center gap-4 rounded-2xl border border-white/[0.08] bg-[#141414] p-5 transition-all duration-300 ease-out hover:border-transparent hover:bg-[#6AFFBD] sm:gap-5 sm:p-7 xl:h-[200px] xl:p-8"
+          >
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#6AFFBD] text-black transition-colors duration-300 ease-out group-hover:bg-black group-hover:text-[#6AFFBD] sm:h-12 sm:w-12">
+              <Icon className="h-4 w-4 md:h-6 md:w-6" strokeWidth={2} />
+            </span>
+            <h3 className="font-aeonik font-medium leading-snug text-white transition-colors duration-300 ease-out group-hover:text-black text-[10px] md:text-[16px] xl:text-[24px]">
+              {card.label}
+            </h3>
           </div>
+        );
+      })}
+    </div>
 
-          <div className="mt-10 flex justify-center sm:mt-12 lg:mt-14">
-            <Button>Join Lemvest</Button>
-          </div>
-        </div>
-      </section>
+    <div className="mt-10 flex justify-center sm:mt-12 lg:mt-14">
+      <Button>Join Lemvest</Button>
+    </div>
+  </div>
+</section>
 
-      {/* -------------------------------- Section 6 -------------------------------- */}
-      <section className="bg-[#090909] pb-16 sm:pb-20 lg:pb-28">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
-          <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:gap-6">
-            {/* Highlighted guarantee card */}
-            <div className="flex flex-col items-center justify-center gap-4 rounded-[20px] bg-[#6CF5C2] p-8 text-center sm:p-10">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-black/10 text-black">
-                <ShieldCheck className="h-6 w-6" />
-              </span>
-              <h3 className="text-lg font-semibold text-black sm:text-xl">
-                Invest with Greater peace of mind
-              </h3>
-            </div>
+{/* -------------------------------- Section 6 -------------------------------- */}
+<section className="bg-[#090909] pb-16 sm:pb-20 lg:pb-28">
+  <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
+    <div className="mx-auto grid max-w-[900px] grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[1fr_2fr] md:gap-6 md:h-[250px]">
+      {/* Highlighted guarantee card - narrower */}
+      <div className="flex flex-col items-center justify-center gap-5 rounded-2xl bg-[#6AFFBD] p-8 text-center sm:p-10 md:h-full">
+        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-black text-[#6AFFBD]">
+          <ShieldCheck className="h-7 w-7" strokeWidth={2} />
+        </span>
+        <h3 className="font-aeonik text-xl font-semibold leading-snug text-black sm:text-2xl">
+          Invest with Greater
+          <br />
+          peace of mind
+        </h3>
+      </div>
 
-            {/* Dark text card */}
-            <div className="flex items-center justify-center rounded-[20px] border border-white/[0.08] bg-[#171717] p-8 text-center sm:p-10">
-              <p className="text-sm leading-relaxed text-zinc-400 sm:text-base">
-                When you join Lemvest, you&apos;re eligible for a 5-day money-back
-                guarantee. If you follow our advice correctly, participate in
-                our live sessions, or take our training courses, and you incur
-                a loss on your initial investment, we&apos;ll reimburse you for
-                that loss during your first 5 days.
-              </p>
-            </div>
-          </div>
+      {/* Dark text card - wider */}
+      <div className="flex items-center justify-center rounded-2xl border border-white/[0.08] bg-[#141414] p-8 text-center sm:p-10 md:h-full">
+        <p className="font-aeonik text-sm leading-relaxed text-zinc-400 sm:text-base sm:leading-loose">
+          When you join Lemvest, you&apos;re eligible for a 5-day
+          money-back guarantee.
+          <br className="hidden sm:block" />
+          If you follow our advice correctly, participate in our live
+          sessions,
+          <br className="hidden sm:block" />
+          or take our training courses, and you incur a loss on your{" "}
+          initial investment,
+          <br className="hidden sm:block" />
+          <span className="font-semibold text-white">
+            we&apos;ll reimburse you for that loss during your first 5
+            days.
+          </span>
+        </p>
+      </div>
+    </div>
 
-          <div className="mt-10 flex justify-center sm:mt-12 lg:mt-14">
-            <Button>Join Lemvest</Button>
-          </div>
-        </div>
-      </section>
+    <div className="mt-10 flex justify-center md:mt-16 lg:mt-14">
+      <Button>Join Lemvest</Button>
+    </div>
+  </div>
+</section>
 
 
 {/* ------------------------------------------------section 7------------------------------------------------------------------- */}
@@ -603,16 +597,23 @@ export default function Home() {
 
 {/* --------------------------------------------------section 8------------------------------------------------------------- */}
 
-<section>
+<section className="py-1">
   <OpportunityCTA />
 </section>
 
 
 {/* ----------------------------------------section last------------------------------------------------------------------------------ */}
 
-<section>
+<section className="">
   <FaqSection/>
+
 </section>
+
+
+
+{/* ---------------------------------------------------------footer--------------------------------------------------------------------- */}
+<Footer />
+
     </div>
   );
 }

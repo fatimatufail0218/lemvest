@@ -22,35 +22,34 @@ const footerNotes = [
   "The program is also for Lemvest.",
 ];
 
-
 /* ---------- Reward Table ---------- */
 function RewardTable() {
   return (
     <div className="w-full rounded-xl overflow-hidden">
       {/* Header */}
-      <div className="grid grid-cols-3 gap-2 mb-2">
-        <div className="bg-white text-black text-[11px] sm:text-xs font-bold tracking-wide text-center py-3 rounded-md">
+      <div className="grid grid-cols-3 gap-2.5 mb-2.5">
+        <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-white px-3 py-3 text-center text-[11px] font-bold tracking-wide text-black sm:min-h-[76px] sm:px-4 sm:text-xs">
           LEVEL
         </div>
-        <div className="bg-blue-800 text-white text-[11px] sm:text-xs font-bold tracking-wide text-center py-3 rounded-md">
+        <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-blue-800 px-3 py-3 text-center text-[11px] font-bold tracking-wide text-white sm:min-h-[76px] sm:px-4 sm:text-xs">
           AFFILIATES
         </div>
-        <div className="bg-white text-black text-[11px] sm:text-xs font-bold tracking-wide text-center py-3 rounded-md">
+        <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-white px-3 py-3 text-center text-[11px] font-bold tracking-wide text-black sm:min-h-[76px] sm:px-4 sm:text-xs">
           COMMISSION PER SALE
         </div>
       </div>
 
       {/* Rows */}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2.5">
         {rewardLevels.map((row) => (
-          <div key={row.level} className="grid grid-cols-3 gap-2">
-            <div className="bg-white/5 text-white/80 text-xs sm:text-sm text-center py-4 rounded-md">
+          <div key={row.level} className="grid grid-cols-3 gap-2.5">
+            <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-white/5 px-3 py-4 text-center text-xs text-white/80 sm:min-h-[76px] sm:px-4 sm:text-sm">
               {row.level}
             </div>
-            <div className="bg-white/5 text-white/80 text-xs sm:text-sm text-center py-4 rounded-md">
+            <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-white/5 px-3 py-4 text-center text-xs text-white/80 sm:min-h-[76px] sm:px-4 sm:text-sm">
               {row.affiliates}
             </div>
-            <div className="bg-white/5 text-white/80 text-xs sm:text-sm text-center py-4 rounded-md">
+            <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-white/5 px-3 py-4 text-center text-xs text-white/80 sm:min-h-[76px] sm:px-4 sm:text-sm">
               {row.commission}
             </div>
           </div>
@@ -63,22 +62,22 @@ function RewardTable() {
 /* ---------- Bonus Rewards ---------- */
 function BonusRewards() {
   return (
-    <div className="w-full mt-5">
-      <div className="border-t border-white/10 pt-3 mb-3">
+    <div className="w-full mt-6">
+      <div className="border-t border-white/10 pt-4 mb-3">
         <p className="text-white/40 text-[11px] font-semibold tracking-wide">
           BONUS REWARDS
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
         {bonusRewards.map((item) => (
           <div
             key={item.referrals}
-            className="bg-white/5 rounded-md text-left sm:text-center py-3 px-4"
+            className="flex min-h-[76px] flex-col items-center justify-center gap-1 rounded-lg bg-white/5 px-4 py-4 text-center sm:min-h-[92px] sm:px-5"
           >
-            <p className="text-white/50 text-[11px] sm:text-xs mb-1">
+            <p className="text-white/50 text-[11px] sm:text-xs">
               {item.referrals}
             </p>
-            <p className="text-white text-sm sm:text-base font-bold">
+            <p className="text-white text-base sm:text-lg font-bold">
               {item.amount}
             </p>
           </div>
@@ -91,13 +90,13 @@ function BonusRewards() {
 /* ---------- Footer Cards ---------- */
 function FooterCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-2.5">
       {footerNotes.map((note) => (
         <div
           key={note}
-          className="bg-white/5 rounded-md text-center py-4 px-3"
+          className="flex min-h-[64px] items-center justify-center rounded-lg bg-white/5 px-4 py-4 text-center sm:min-h-[76px] sm:px-5"
         >
-          <p className="text-white/60 text-[11px] sm:text-xs leading-snug">
+          <p className="text-white/60 text-xs sm:text-sm leading-snug">
             {note}
           </p>
         </div>
@@ -113,8 +112,8 @@ export default function ShareRewardSection() {
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Heading - always centered on top */}
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-            <span className="text-white/40 font-normal block">
+          <h2 className="text-[36px] md:text-[40px] xl:text-[60px] font-medium leading-tight">
+            <span className="text-white/30 block">
               Share Lemvest,
             </span>
             <span className="text-white">get rewarded</span>
@@ -122,19 +121,16 @@ export default function ShareRewardSection() {
         </div>
 
         {/* Card wrapper */}
-        <div className="w-full border border-white/10 rounded-2xl p-6 md:p-8 lg:p-10">
+        <div className="w-full border border-white/10 rounded-2xl p-6 md:p-8 lg:p-12">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-14">
             {/* Left side text + button (desktop only in this position) */}
-            <div className="hidden lg:flex flex-col justify-center items-center w-[220px] shrink-0 text-center gap-4">
-              <p className="text-lg font-semibold leading-snug">
+            <div className="hidden lg:flex flex-col justify-center items-center w-[240px] shrink-0 text-center gap-5">
+              <p className="text-xl font-semibold leading-snug">
                 A 3-LEVEL
                 <br />
                 REWARD SYSTEM
               </p>
-              <Button>
-                    Join Lemvest
-                </Button>
-  
+              <Button>Join Lemvest</Button>
             </div>
 
             {/* Right side: table + bonus + footer */}
@@ -146,16 +142,13 @@ export default function ShareRewardSection() {
           </div>
 
           {/* Mobile-only text + button (shown below everything, stacked) */}
-          <div className="flex lg:hidden flex-col items-center text-center gap-3 mt-6">
-            <p className="text-base font-semibold leading-snug">
+          <div className="flex lg:hidden flex-col items-center text-center gap-4 mt-8">
+            <p className="text-lg font-semibold leading-snug">
               A 3-LEVEL
               <br />
               REWARD SYSTEM
             </p>
-            <Button>
-      Join Lemvest
-    </Button>
-  
+            <Button>Join Lemvest</Button>
           </div>
         </div>
       </div>

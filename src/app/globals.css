@@ -16,35 +16,27 @@ body {
 
 h1 {
   font-family: var(--font-aeonik);
-  font-weight: 500;
-  font-size: 60px;
+  
 }
 
 h2 {
   font-family: var(--font-aeonik);
-  font-size: 52px;
-  font-weight: 500;
-  line-height: 100%;
+  
 }
 
 h3 {
   font-family: var(--font-aeonik);
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 100%;
+  
 }
 
 h4 {
   font-family: var(--font-aeonik);
-  font-weight: 500;
-  line-height: 100%;
+  
 }
 
 h5 {
   font-family: var(--font-aeonik);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 100%;
+  
 }
 
 p {

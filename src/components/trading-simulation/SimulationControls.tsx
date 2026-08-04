@@ -10,7 +10,6 @@ const riskRewardOptions = ["1:1", "1:1.5", "1:2", "1:3"];
 const sliderTrackClasses =
   "[&_[data-slot=slider-range]]:bg-[#6CF5C2] [&_[data-slot=slider-thumb]]:border-[#6CF5C2] [&_[data-slot=slider-thumb]]:bg-[#6CF5C2] [&_[data-slot=slider-track]]:bg-white/10";
 
-// Shared shape for the three cards that are "label + value + slider + min/max"
 function SliderField({
   label,
   value,
@@ -33,17 +32,13 @@ function SliderField({
   onChange: (value: number) => void;
 }) {
   return (
-    <SimulationCard
-      label={label}
-      icon={<Info className="h-3.5 w-3.5" />}
-      className="col-span-1 md:col-span-3"
-    >
+    <SimulationCard label={label} icon={<Info className="h-3.5 w-3.5" />}>
       <div className="flex items-end justify-between">
-        <span className="text-2xl font-semibold text-white sm:text-3xl">
+        <span className="text-2xl font-semibold text-white">
           {value}
           {suffix === "%" && "%"}
         </span>
-        {suffix === "$" && <span className="text-sm text-zinc-400">$</span>}
+        {suffix === "$" && <span className="text-xs text-zinc-400">$</span>}
       </div>
 
       <Slider
@@ -51,14 +46,13 @@ function SliderField({
         min={min}
         max={max}
         step={step}
-        onValueChange={(value) => {
-            const newValue = Array.isArray(value) ? value[0] : value;
-            onChange(newValue);
-            }}
-        className={sliderTrackClasses}
+onValueChange={(value) => {
+  onChange(Array.isArray(value) ? value[0] : value);
+}}
+                className={sliderTrackClasses}
       />
 
-      <div className="flex items-center justify-between text-xs text-zinc-500">
+      <div className="flex items-center justify-between text-[11px] text-zinc-500">
         <span>{minLabel}</span>
         <span>{maxLabel}</span>
       </div>
@@ -73,7 +67,9 @@ export default function SimulationControls() {
   const [numberOfTrades, setNumberOfTrades] = useState(20);
 
   return (
-    <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 md:mt-14 md:grid-cols-12 md:gap-6">
+    // Gap scales up progressively; only hits the Figma's exact 40px at lg+,
+    // so mobile/tablet stay tight and uncramped.
+    <div className="mt-8 grid grid-cols-2 gap-2 sm:mt-10 md:grid-cols-4 md:gap-2 lg:mt-14 lg:gap-4">
       <SliderField
         label="Initial Capital"
         value={initialCapital}
@@ -98,22 +94,17 @@ export default function SimulationControls() {
         onChange={setWinRate}
       />
 
-      {/* Risk / Reward — pill buttons instead of a slider, so it's built separately */}
-      <SimulationCard
-        label="Risk / Reward"
-        icon={<Info className="h-3.5 w-3.5" />}
-        className="col-span-1 md:col-span-3"
-      >
+      <SimulationCard label="Risk / Reward" icon={<Info className="h-3.5 w-3.5" />}>
         <div className="text-2xl font-semibold text-white sm:text-3xl">
           {riskReward}
         </div>
-        <div className="grid grid-cols-4 gap-2">
+        <div className="flex flex-row gap-1 pr-0.5">
           {riskRewardOptions.map((option) => (
             <button
               key={option}
               type="button"
               onClick={() => setRiskReward(option)}
-              className={`rounded-lg border px-2 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm ${
+              className={`rounded-lg border px-1 md:px-1.5 py-1.5 text-[8px] md:text-[10px] font-medium transition-colors duration-200 ${
                 riskReward === option
                   ? "border-[#6CF5C2] bg-[#6CF5C2] text-black"
                   : "border-white/10 bg-white/[0.03] text-zinc-300 hover:bg-white/[0.06]"
@@ -135,6 +126,9 @@ export default function SimulationControls() {
         maxLabel="500"
         onChange={setNumberOfTrades}
       />
+
+
+      
     </div>
   );
 }

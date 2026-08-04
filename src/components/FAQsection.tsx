@@ -54,10 +54,10 @@ const faqs = [
 
 export default function FaqSection() {
   return (
-    <section className="bg-[#090909] py-16 sm:py-20 lg:py-28">
+    <section className="bg-[#090909] pb-16">
       <div className="mx-auto w-full max-w-[640px] px-4 sm:px-6">
-        <h2 className="text-center text-2xl font-semibold text-white sm:text-3xl lg:text-4xl">
-          Frequently asked questions
+        <h2 className="text-center font-medium leading-none text-white/70 text-[36px] lg:text-[60px]">
+          Frequently asked {" "} <br /><span className="text-white">questions</span> 
         </h2>
 
         <Accordion
@@ -79,12 +79,12 @@ export default function FaqSection() {
           <div className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-[#6CF5C2]/40 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-[#6CF5C2]/40 blur-3xl" />
 
-          <div className="relative flex flex-col items-center gap-4 text-center sm:gap-5">
-            <p className="text-lg font-semibold text-white sm:text-xl">
+          <div className="relative flex flex-col items-start gap-4 text-left sm:gap-5">
+            <h5 className="text-2xl font-medium text-white/80">
               Can&apos;t find the answer to your question?
               <br />
               Our team is here to help.
-            </p>
+            </h5>
             <Button>Join Lemvest</Button>
           </div>
         </div>

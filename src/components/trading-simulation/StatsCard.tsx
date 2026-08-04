@@ -8,8 +8,9 @@ interface StatsCardProps {
   className?: string;
 }
 
-// h-full + justify-between so the card can stretch to fill whatever row
-// height the parent grid gives it, without content looking cramped
+// justify-center (not justify-between) — content clusters together as a
+// tight group, so the card reads as a wide rectangle instead of stretching
+// tall with big gaps between icon / label / value / sub-label.
 export default function StatsCard({
   icon,
   label,
@@ -19,14 +20,15 @@ export default function StatsCard({
 }: StatsCardProps) {
   return (
     <div
-      className={`flex h-full flex-col justify-between gap-3 rounded-[20px] border border-white/[0.08] bg-[#171717] p-5 transition-colors duration-200 hover:bg-[#1c1c1c] sm:p-6 ${className}`}
+      className={`flex h-full flex-col justify-center gap-2 rounded-2xl border border-white/[0.08] bg-[#171717] p-3 transition-colors duration-200 hover:bg-[#1c1c1c] ${className}`}
     >
-      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#6CF5C2]/10 text-[#6CF5C2]">
+      {/* overflow-hidden so a swapped-in <Image> stays clipped to this box's rounded corners */}
+      <span className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg bg-[#6CF5C2]/10 text-[#6CF5C2]">
         {icon}
       </span>
       <div>
         <div className="text-xs uppercase tracking-wide text-zinc-400">{label}</div>
-        <div className="mt-1 text-2xl font-semibold text-white sm:text-3xl">{value}</div>
+        <div className="mt-1 text-xl font-semibold text-white">{value}</div>
       </div>
       <div className="text-xs text-zinc-500">{subLabel}</div>
     </div>

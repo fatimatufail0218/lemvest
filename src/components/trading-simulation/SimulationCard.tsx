@@ -15,9 +15,9 @@ export default function SimulationCard({
 }: SimulationCardProps) {
   return (
     <div
-      className={`flex flex-col gap-4 rounded-[20px] border border-white/[0.08] bg-[#171717] p-5 transition-colors duration-200 hover:bg-[#1c1c1c] sm:p-6 ${className}`}
+      className={`flex flex-col gap-2 rounded-2xl border border-white/[0.08] bg-[#171717] p-3 transition-colors duration-200 hover:bg-[#1c1c1c] ${className}`}
     >
-      <div className="flex items-center gap-1.5 text-xs text-zinc-400 sm:text-sm">
+      <div className="flex items-center gap-1 text-xs text-zinc-400">
         <span>{label}</span>
         {icon}
       </div>
