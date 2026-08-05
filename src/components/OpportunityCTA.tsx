@@ -3,7 +3,7 @@ import Button from "./Button";
 
 export default function OppurtunityCTA() {
   return (
-    <section className="bg-[#090909]">
+    <section className="bg-[#000]">
       <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <div className="relative">
           {/* Desktop / tablet background */}

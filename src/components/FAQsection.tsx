@@ -54,7 +54,7 @@ const faqs = [
 
 export default function FaqSection() {
   return (
-    <section className="bg-[#090909] pb-16">
+    <section className="bg-[#000] pb-16">
       <div className="mx-auto w-full max-w-[640px] px-4 sm:px-6">
         <h2 className="text-center font-medium leading-none text-white/70 text-[36px] lg:text-[60px]">
           Frequently asked {" "} <br /><span className="text-white">questions</span> 

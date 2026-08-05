@@ -10,7 +10,7 @@ interface ResultCardProps {
 export default function ResultCard({ className = "", children }: ResultCardProps) {
   return (
     <div
-      className={`flex h-full flex-col rounded-[20px] border border-white/[0.08] bg-[#171717] p-5 transition-colors duration-200 hover:bg-[#1c1c1c] sm:p-6 ${className}`}
+      className={`flex h-full min-w-0 flex-col rounded-[20px] border border-white/[0.08] bg-[#171717] p-5 transition-colors duration-200 hover:bg-[#1c1c1c] sm:p-6 ${className}`}
     >
       {children}
     </div>

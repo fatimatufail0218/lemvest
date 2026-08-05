@@ -21,19 +21,11 @@ const tradeStats = [
     value: "7",
     subLabel: "35%",
   },
-  {
-    id: "total-trades",
-    icon: <CalendarDays className="h-4 w-4" />,
-    label: "Total Trades",
-    value: "20",
-    subLabel: "100%",
-  },
 ];
 
 export default function TradingSimulation() {
   return (
-    <section className="bg-[#090909] py-16 sm:py-20 lg:py-28">
-      {/* 1280px max-width, exactly matching the Figma frame — fixed, no further growth at 2xl */}
+    <section className="bg-[#000] py-16 sm:py-20 lg:py-28">
       <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Simulate your trading results"
@@ -51,53 +43,59 @@ export default function TradingSimulation() {
           <span className="h-px flex-1 bg-white/10" />
         </div>
 
-       {/*
-  12-column grid starts right from md (not just lg), so all three cards
-  share the same row from tablet width upward. items-stretch then makes
-  the stats card and result card match the chart card's height exactly.
-*/}
-<div className="mt-8 grid grid-cols-1 items-stretch gap-2 md:grid-cols-12 md:gap-3">
-  {/* Left column — inner mini-grid keeps its own smaller, consistent gap */}
-  <div className="grid h-full grid-cols-3 gap-2 md:col-span-3 md:grid-cols-2 md:grid-rows-2 md:gap-2">
-    {tradeStats.map((stat, index) => (
-      <StatsCard
-        key={stat.id}
-        icon={stat.icon}
-        label={stat.label}
-        value={stat.value}
-        subLabel={stat.subLabel}
-        className={index === 2 ? "md:col-span-2" : ""}
-      />
-    ))}
-  </div>
+        {/* Bottom section — pure flexbox, no grid */}
+        <div className="mt-8 flex flex-col gap-2 lg:flex-row lg:items-stretch lg:gap-3">
+          {/* LEFT — winning/losing row + total trades */}
+          <div className="flex min-w-0 flex-col gap-2 lg:basis-[24%]">
+            <div className="flex flex-1 gap-2">
+              {tradeStats.map((stat) => (
+                <StatsCard
+                  key={stat.id}
+                  icon={stat.icon}
+                  label={stat.label}
+                  value={stat.value}
+                  subLabel={stat.subLabel}
+                  className="flex-1 basis-0 min-w-0"
+                />
+              ))}
+            </div>
+            <StatsCard
+              icon={<CalendarDays className="h-4 w-4" />}
+              label="Total Trades"
+              value="20"
+              subLabel="100%"
+            />
+          </div>
 
-  <ResultCard className="justify-between gap-2 md:col-span-4">
-    <div>
-      <div className="text-xs uppercase tracking-wide text-zinc-400">
-        Estimated Result
-      </div>
-      <div className="mt-2 text-3xl font-semibold text-[#6CF5C2] sm:text-4xl">
-        +1,900 $
-      </div>
-    </div>
+          {/* CENTER — result card */}
+          <ResultCard className="justify-between gap-2 md:gap-10 xl:gap-2.5 min-w-0 lg:basis-[26%]">
+            <div>
+              <div className="text-xs uppercase tracking-wide text-zinc-400">
+                Estimated Result
+              </div>
+              <div className="mt-2 text-3xl font-semibold text-[#6CF5C2] sm:text-4xl">
+                +1,900 $
+              </div>
+            </div>
 
-    <div className="border-t border-white/[0.08] pt-4">
-      <div className="text-xs uppercase tracking-wide text-zinc-400">
-        Final Capital
-      </div>
-      <div className="mt-2 text-2xl font-semibold text-white sm:text-3xl">
-        2,900 $
-      </div>
-    </div>
+            <div className="border-t border-white/[0.08] pt-4 xl:pt-9">
+              <div className="text-xs uppercase tracking-wide text-zinc-400">
+                Final Capital
+              </div>
+              <div className="mt-2 text-2xl font-semibold text-white sm:text-3xl">
+                2,900 $
+              </div>
+            </div>
 
-    <div className="flex items-center gap-2 rounded-xl bg-[#6CF5C2] px-3 py-3 text-xs font-medium text-black sm:text-sm">
-      <TrendingUp className="h-4 w-4 shrink-0" />
-      An increase of +190.0% on your initial capital
-    </div>
-  </ResultCard>
+            <div className="flex items-center gap-2 rounded-xl bg-[#2A483B] px-2 py-3 font-normal text-black text-[12px]">
+              <TrendingUp className="h-4 w-4 shrink-0 text-[#6AFFBD]" />
+              <h3 className="text-[#6AFFBD]">An increase of +190.0% on your initial capital</h3>
+            </div>
+          </ResultCard>
 
-  <ChartCard className="md:col-span-5" />
-</div>
+          {/* RIGHT — chart, no container/box */}
+          <ChartCard className="min-w-0 lg:basis-[50%]" />
+        </div>
 
         <div className="mt-10 flex justify-center sm:mt-12 lg:mt-14">
           <Button>Join Lemvest</Button>

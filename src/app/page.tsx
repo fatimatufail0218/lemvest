@@ -29,6 +29,7 @@ import FaqSection from "@/components/FAQsection";
 import OpportunityCTA from "@/components/OpportunityCTA";
 import Footer from "@/components/footer";
 
+
 // Card data — edit copy/images here, no JSX repeated 3 times below
 const cards = [
   {
@@ -152,24 +153,24 @@ React.useEffect(() => {
   return (
     <div>
       <Navbar/>
-{/* -------------------------------------------------------------section 1-------------------------------------------------------------------------- */}
-      <section className="relative overflow-hidden h-[110vh] md:min-h-[120vh] py-30">
-          <div className="absolute inset-0">
-            <Image
-              src="/hero-ellipse.webp"
-              fill
-              alt=""
-              priority
-              className="object-cover object-top"
-          />
-          </div>
+      {/* -------------------------------------------------------------section 1-------------------------------------------------------------------------- */}
+<section className="relative overflow-hidden h-[110vh] md:min-h-[120vh] py-16 md:py-24 lg:py-28 xl:py-[7.5rem]">
+  <div className="absolute inset-0">
+    <Image
+      src="/hero-ellipse.webp"
+      fill
+      alt=""
+      priority
+      className="object-cover object-top"
+    />
+  </div>
 
-          <div className="relative z-10 xl:px-10 md:px-9 px-4 max-w-[1400px] mx-auto">
-            <div className="flex justify-between items-center">
-                {/* --------------------------------------------left cards------------------------------------------- */}
-                <div className="md:flex flex-col gap-80 lg:gap-60  hidden">
-                  <Card
-                    icon={<svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlnsXlink="http://www.w3.org/1999/xlink">
+  <div className="relative z-10 h-full xl:px-10 md:px-9 px-4 max-w-[1400px] mx-auto -translate-y-[50px]">
+    <div className="flex h-full items-stretch justify-between">
+      {/* --------------------------------------------left cards------------------------------------------- */}
+      <div className="hidden shrink-0 flex-col justify-around pt-10 pb-6 md:pt-16 md:pb-10 lg:pt-20 lg:pb-14 xl:pt-24 xl:pb-20 md:flex">
+        <Card
+          icon={<svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
                       <g clip-path="url(#clip0_256_965)">
                       <path d="M18.8086 3.29611L19.2964 7.93722M9.52637 4.27171L10.0142 8.91281" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
                       <path d="M15.5715 5.98257L13.251 6.22647C8.87528 6.68638 6.68745 6.91633 5.47097 8.41854C4.2545 9.92077 4.48445 12.1086 4.94435 16.4843L5.18825 18.8048C5.64815 23.1805 5.87811 25.3684 7.38031 26.5848C8.88255 27.8013 11.0704 27.5713 15.4461 27.1114L17.7666 26.8675C22.1422 26.4076 24.3302 26.1777 25.5466 24.6754C26.7631 23.1733 26.5331 20.9854 26.0732 16.6097L25.8293 14.2892C25.3694 9.9135 25.1395 7.72567 23.6372 6.50919C22.1351 5.29272 19.9471 5.52268 15.5715 5.98257Z" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -181,13 +182,13 @@ React.useEffect(() => {
                       </clipPath>
                       </defs>
                       </svg>} 
-                      className="-rotate-6"
-                    title="Daily Opportunities"
-                    pinSrc="/pin.webp"
-                  />
+                      className="-rotate-6 -translate-y-[40%] lg:-translate-y-[60%]"
+          title="Daily Opportunities"
+          pinSrc="/pin.webp"
+        />
 
-                  <Card
-                    icon={<svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlnsXlink="http://www.w3.org/1999/xlink">
+        <Card
+          icon={<svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
                       <g clip-path="url(#clip0_256_975)">
                       <path d="M5.4839 25.4454L10.5395 21.2032M12.864 21.4066L17.1062 26.4622M11.7018 21.3049L11.1934 27.1161" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
                       <path d="M3.55807 14.0048C3.76778 11.6079 3.87263 10.4094 5.12922 9.76898C6.38579 9.12858 8.30337 9.29634 12.1385 9.63188L13.3007 9.73356C17.1359 10.0691 19.0534 10.2369 20.1798 11.0857C21.306 11.9346 21.2012 13.1331 20.9915 15.5301L20.8644 16.9829C20.6547 19.3798 20.5498 20.5783 19.2933 21.2187C18.0366 21.8591 16.119 21.6914 12.2839 21.3558L11.1217 21.2541C7.28655 20.9186 5.36897 20.7508 4.24269 19.902C3.11641 19.0531 3.22126 17.8546 3.43097 15.4576L3.55807 14.0048Z" stroke="white" stroke-width="1.75"></path>
@@ -202,29 +203,26 @@ React.useEffect(() => {
                       </defs>
                       </svg>}
                       className="rotate-6"
-                    title="Live Sessions"
-                    pinSrc="/pin.webp"
-                  />
+          title="Live Sessions"
+          pinSrc="/pin.webp"
+        />
+      </div>
 
-                  
-                </div>
-                {/* ---------------------------------------------------middle content----------------------------------------- */}
-                <div className="max-w-[400px] xl:max-w-[1200px] px-2 md:px-5 xl:px-40 text-center">
-                  <h1 className="text-[#FFF]/30 text-[20px] md:text-[35px] xl:text-[60px] leading-[100%]">
-                    You don’t need to do more {" "}
-                    <span className="text-[#FFF]">
-                      - You need a better system
-                    </span>
-                  </h1>
-                  <h4 className="text-[#FFF]/70 pt-2 text-[12px] md:text-[14px] xl:text-[16px]">
-                    Whatever your level of experience, Lemvest helps you to learn, improve and grow financially through  a comprehensive trading ecosystem. 
-                  </h4>
-                  <div className="pt-6">
-                    <Button className="">Join Lemvest</Button>
-                  </div>
+      {/* ---------------------------------------------------middle content----------------------------------------- */}
+      <div className="flex min-w-0 flex-1 flex-col items-center justify-start max-w-[400px] sm:max-w-[480px] md:max-w-[560px] lg:max-w-[700px] xl:max-w-[1200px] mx-auto px-2 sm:px-4 md:px-6 lg:px-10 xl:px-40 text-center pt-30">
+        <h1 className="text-[#FFF]/30 text-[36px] md:text-[35px] lg:text-[42px] xl:text-[60px] leading-[100%] lg:max-w-[450px] xl:max-w-[580px] ">
+          You don't need to do more{" "}
+          <span className="text-[#FFF]">- You need a better system</span>
+        </h1>
+        <h4 className="text-[#FFF]/70 pt-2 text-[12px] md:text-[14px] xl:text-[16px]">
+          Whatever your level of experience, Lemvest helps you to learn, improve and grow financially through a comprehensive trading ecosystem.
+        </h4>
+        <div className="pt-6">
+          <Button>Join Lemvest</Button>
+        </div>
                   
                   {/* --------------------------------------------chip-------------------------------------------- */}
-                  <div className="flex flex-col md:flex-row items-stretch md:items-center gap-2 md:gap-2 md:justify-center mt-4">
+                  <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
                     <Chip icon={<svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none" xmlnsXlink="http://www.w3.org/1999/xlink">
                       <g clip-path="url(#clip0_256_965)">
                       <path d="M18.8086 3.29611L19.2964 7.93722M9.52637 4.27171L10.0142 8.91281" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -281,8 +279,8 @@ React.useEffect(() => {
                   </div>
                 </div>
                 {/* -------------------------------------------------right cards------------------------------------------------- */}
-                <div className="md:flex flex-col gap-80 lg:gap-60 hidden">
-                    <Card
+                 <div className="hidden shrink-0 flex-col justify-around pt-10 pb-6 md:pt-16 md:pb-10 lg:pt-20 lg:pb-14 xl:pt-24 xl:pb-20 md:flex">
+        <Card
                     icon={<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlnsXlink="http://www.w3.org/1999/xlink">
                       <g clip-path="url(#clip0_256_935)">
                       <path d="M5.49414 20.0634L11.2096 16.7636C12.4707 16.0355 13.1012 15.6715 13.7263 15.7801C13.8296 15.798 13.9311 15.8252 14.0296 15.8613C14.6251 16.0799 14.9892 16.7103 15.7173 17.9714C16.4454 19.2325 16.8093 19.863 17.4049 20.0815C17.5035 20.1177 17.6049 20.1448 17.7083 20.1628C18.3334 20.2714 18.9638 19.9073 20.2249 19.1792L27.3693 15.0544" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -294,7 +292,7 @@ React.useEffect(() => {
                       </clipPath>
                       </defs>
                       </svg>}
-                      className="rotate-6"
+                      className="rotate-6 -translate-y-[40%] lg:-translate-y-[60%]"
                     title="Strategies"
                     pinSrc="/pin.webp"
                   />
@@ -510,12 +508,12 @@ React.useEffect(() => {
 
 
 {/* --------------------------------------------------------------------section 4------------------------------------------------------- */}
-<section className="min-h-[100vh]">
+<section className="min-h-auto">
 <TradingSimulation />
 </section>
 
 {/* -------------------------------- Section 5 -------------------------------- */}
-<section className="bg-[#090909] py-16 sm:py-20 lg:py-28">
+<section className="bg-[#000] py-16 sm:py-20 lg:py-28">
   <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
     <h2 className="text-center font-aeonik font-medium tracking-tight text-white text-[36px] lg:text-[40px] xl:text-[60px]">
       Free but precious
@@ -548,7 +546,7 @@ React.useEffect(() => {
 </section>
 
 {/* -------------------------------- Section 6 -------------------------------- */}
-<section className="bg-[#090909] pb-16 sm:pb-20 lg:pb-28">
+<section className="bg-[#000] pb-16 sm:pb-20 lg:pb-28">
   <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
     <div className="mx-auto grid max-w-[900px] grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[1fr_2fr] md:gap-6 md:h-[250px]">
       {/* Highlighted guarantee card - narrower */}
