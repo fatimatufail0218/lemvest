@@ -2,15 +2,32 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
- :root { 
-  --background: #000000; 
-  --foreground: #ffffff; 
-} 
- 
-body { 
-  background: var(--background); 
-  color: var(--foreground); 
-  overflow-x: hidden; 
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(:not(.dark, .dark *)));
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --accent: #17438D;        /* navy — light mode */
+  --accent-foreground: #ffffff;
+  --button-border-mid: #eee9e9;   /* light mode: fades toward white */
+  --button-border-end: #ffffff;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent: #6affbd;        /* mint — dark mode */
+  --accent-foreground: #000000;
+  --button-border-mid: #3f3e3e;   /* dark mode: fades toward black */
+  --button-border-end: #0A0A0A;
+
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
 }
 
 

@@ -3,6 +3,7 @@ import { Montserrat, Geist } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import ThemeProvider from "./providers/ThemeProvider";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -40,8 +41,28 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", montserrat.variable, aeonik.variable, "font-sans", geist.variable)}
+      className={cn("h-full", "dark", "antialiased", montserrat.variable, aeonik.variable, "font-sans", geist.variable)}
     >
+      <head>
+        {/* Hydration se pehle localStorage se theme padh kar class laga deta
+            hai — is se page load par galat theme "flash" nahi hoga */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  var theme = localStorage.getItem("theme");
+                  if (theme === "light") {
+                    document.documentElement.classList.remove("dark");
+                  } else {
+                    document.documentElement.classList.add("dark");
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

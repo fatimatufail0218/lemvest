@@ -1,14 +1,15 @@
 "use client";
+import ThemeToggle from "./ThemeToggle";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "./Button";
 
 const NAV_LINKS = [
-  { id: "home", href: "/#home", label: "Home" },
-  { id: "about", href: "/#about", label: "About" },
   { id: "services", href: "/#services", label: "Services" },
-  { id: "contact", href: "/#contact", label: "Contact" },
+  { id: "lemvestAI", href: "/#lemvestAI", label: "LemvestAI" },
+  { id: "faq", href: "/#faq", label: "FAQ" },
+  { id: "ambassador", href: "/#ambassador", label: "Ambassador" },
 ];
 
 const Navbar = () => {
@@ -49,33 +50,49 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full py-4 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-black/40 backdrop-blur-xl border-b border-white/10"
+          ? "bg-white/70 dark:bg-black/40 backdrop-blur-xl border-b border-black/10 dark:border-white/10"
           : "bg-transparent"
       }`}
     >
 
       <div className="flex w-full items-center justify-between xl:px-10 md:px-6 px-4 max-w-[1400px] mx-auto">
         {/* Logo */}
-        <div className="flex items-center">
-        {/* Desktop logo — full wordmark, hidden below lg breakpoint */}
-        <Image
-            src="/logo-b.webp"
-            alt="Logo"
-            width={120}
-            height={24}
-            className="hidden md:block"
-        />
+<div className="flex items-center">
+  {/* Desktop logo — dark mode: sirf md+ AND dark, ek hi compound rule */}
+  <Image
+    src="/logo-b.webp"
+    alt="Logo"
+    width={120}
+    height={24}
+    className="hidden dark:md:block"
+  />
+  {/* Desktop logo — light mode: sirf md+ AND light, ek hi compound rule */}
+  <Image
+    src="/logo-w.webp"
+    alt="Logo"
+    width={120}
+    height={24}
+    className="hidden light:md:block"
+  />
 
-        {/* Mobile logo — compact mark, hidden at lg and above */}
-        <Image
-            src="/logo-mob.webp"
-            alt="Logo"
-            width={86}
-            height={86}
-            className="md:hidden"
-        />
-        </div>
+  {/* Mobile logo — dark mode: sirf md se neeche AND dark */}
+  <Image
+    src="/logo-mob.webp"
+    alt="Logo"
+    width={80}
+    height={80}
+    className="hidden dark:max-md:block"
+  />
 
+  {/* Mobile logo — light mode: sirf md se neeche AND light */}
+  <Image
+    src="/logo-mob-light.webp"
+    alt="Logo"
+    width={80}
+    height={80}
+    className="hidden light:max-md:block"
+  />
+</div>
         {/* Desktop Nav Links */}
         <ul className="hidden lg:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
@@ -87,8 +104,8 @@ const Navbar = () => {
                   transition-all duration-300
                   ${
                     activeSection === link.id
-                      ? "text-[#6AFFBD]"
-                      : "text-white hover:text-[#6AFFBD]"
+                      ? "text-(--accent)"
+                      : "text-black dark:text-white hover:text-(--accent)"
                   }
                 `}
               >
@@ -99,7 +116,12 @@ const Navbar = () => {
         </ul>
 
         {/* CTA + Hamburger — together in the main row, all screen sizes */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-3 sm:gap-4">
+          {/* Theme toggle — desktop/tablet only, moves into the mobile menu below lg */}
+          <div className="hidden lg:block">
+            <ThemeToggle />
+          </div>
+
           <Button className="">Join for free</Button>
 
           <button
@@ -110,17 +132,17 @@ const Navbar = () => {
             className="flex h-10 w-10 flex-col items-center justify-center gap-[6px] lg:hidden"
           >
             <span
-              className={`h-[2px] w-6 bg-white transition-all duration-300 ${
+              className={`h-[2px] w-6 bg-black dark:bg-white transition-all duration-300 ${
                 isOpen ? "translate-y-[8px] rotate-45" : ""
               }`}
             />
             <span
-              className={`h-[2px] w-6 bg-white transition-all duration-300 ${
+              className={`h-[2px] w-6 bg-black dark:bg-white transition-all duration-300 ${
                 isOpen ? "opacity-0" : "opacity-100"
               }`}
             />
             <span
-              className={`h-[2px] w-6 bg-white transition-all duration-300 ${
+              className={`h-[2px] w-6 bg-black dark:bg-white transition-all duration-300 ${
                 isOpen ? "-translate-y-[8px] -rotate-45" : ""
               }`}
             />
@@ -128,11 +150,11 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile dropdown — links only, no duplicate button */}
+      {/* Mobile dropdown — links + theme toggle, no duplicate CTA button */}
       <div
         className={`
           absolute left-0 right-0 top-full z-[60] mx-5
-          overflow-hidden rounded-3xl border border-white/10 bg-black
+          overflow-hidden rounded-3xl border border-black/10 dark:border-white/10 bg-white dark:bg-black
           transition-all duration-300 ease-in-out lg:hidden
           ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}
         `}
@@ -148,14 +170,19 @@ const Navbar = () => {
                 transition-all duration-300
                 ${
                   activeSection === link.id
-                    ? "bg-[#6AFFBD] text-black"
-                    : "text-white hover:bg-[#6AFFBD]/10"
+                    ? "bg-(--accent) text-(--accent-foreground)"
+                    : "text-black dark:text-white hover:bg-(--accent)/10"
                 }
               `}
             >
               {link.label}
             </a>
           ))}
+
+          {/* Theme toggle lives inside the mobile menu, right where the hamburger starts */}
+          <div className="mt-2 flex justify-center border-t border-black/10 dark:border-white/10 pt-4">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </nav>

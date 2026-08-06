@@ -54,10 +54,10 @@ const faqs = [
 
 export default function FaqSection() {
   return (
-    <section className="bg-[#000] pb-16">
+    <section className="pb-16">
       <div className="mx-auto w-full max-w-[640px] px-4 sm:px-6">
-        <h2 className="text-center font-medium leading-none text-white/70 text-[36px] lg:text-[60px]">
-          Frequently asked {" "} <br /><span className="text-white">questions</span> 
+        <h2 className="text-center font-medium leading-none text-black/50 dark:text-white/70 text-[36px] lg:text-[60px]">
+          Frequently asked {" "} <br /><span className="text-black dark:text-white">questions</span> 
         </h2>
 
         <Accordion
@@ -75,12 +75,12 @@ export default function FaqSection() {
         </Accordion>
 
         {/* Glass-morphism CTA card — blurred background, mint-green corner glows */}
-        <div className="relative mt-10 overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl sm:p-10 lg:mt-14">
+        <div className="relative mt-10 overflow-hidden rounded-[24px] border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.04] p-8 backdrop-blur-xl sm:p-10 lg:mt-14">
           <div className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-[#6CF5C2]/40 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-[#6CF5C2]/40 blur-3xl" />
 
           <div className="relative flex flex-col items-start gap-4 text-left sm:gap-5">
-            <h5 className="text-2xl font-medium text-white/80">
+            <h5 className="text-2xl font-medium text-black/80 dark:text-white/80">
               Can&apos;t find the answer to your question?
               <br />
               Our team is here to help.

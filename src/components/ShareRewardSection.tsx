@@ -28,13 +28,13 @@ function RewardTable() {
     <div className="w-full rounded-xl overflow-hidden">
       {/* Header */}
       <div className="grid grid-cols-3 gap-2.5 mb-2.5">
-        <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-white px-3 py-3 text-center text-[11px] font-bold tracking-wide text-black sm:min-h-[76px] sm:px-4 sm:text-xs">
+        <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-black/[0.03] dark:bg-white px-3 py-3 text-center text-[11px] font-bold tracking-wide text-black sm:min-h-[76px] sm:px-4 sm:text-xs">
           LEVEL
         </div>
-        <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-blue-800 px-3 py-3 text-center text-[11px] font-bold tracking-wide text-white sm:min-h-[76px] sm:px-4 sm:text-xs">
+        <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-(--accent) px-3 py-3 text-center text-[11px] font-bold tracking-wide text-(--accent-foreground) sm:min-h-[76px] sm:px-4 sm:text-xs">
           AFFILIATES
         </div>
-        <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-white px-3 py-3 text-center text-[11px] font-bold tracking-wide text-black sm:min-h-[76px] sm:px-4 sm:text-xs">
+        <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-black/[0.03] dark:bg-white px-3 py-3 text-center text-[11px] font-bold tracking-wide text-black sm:min-h-[76px] sm:px-4 sm:text-xs">
           COMMISSION PER SALE
         </div>
       </div>
@@ -43,13 +43,13 @@ function RewardTable() {
       <div className="flex flex-col gap-2.5">
         {rewardLevels.map((row) => (
           <div key={row.level} className="grid grid-cols-3 gap-2.5">
-            <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-white/5 px-3 py-4 text-center text-xs text-white/80 sm:min-h-[76px] sm:px-4 sm:text-sm">
+            <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-black/[0.03] dark:bg-white/9 px-3 py-4 text-center text-xs text-black/70 dark:text-white/80 sm:min-h-[76px] sm:px-4 sm:text-sm">
               {row.level}
             </div>
-            <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-white/5 px-3 py-4 text-center text-xs text-white/80 sm:min-h-[76px] sm:px-4 sm:text-sm">
+            <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-black/[0.03] dark:bg-white/9 px-3 py-4 text-center text-xs text-black/70 dark:text-white/80 sm:min-h-[76px] sm:px-4 sm:text-sm">
               {row.affiliates}
             </div>
-            <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-white/5 px-3 py-4 text-center text-xs text-white/80 sm:min-h-[76px] sm:px-4 sm:text-sm">
+            <div className="flex min-h-[64px] items-center justify-center rounded-lg bg-black/[0.03] dark:bg-white/9 px-3 py-4 text-center text-xs text-black/70 dark:text-white/80 sm:min-h-[76px] sm:px-4 sm:text-sm">
               {row.commission}
             </div>
           </div>
@@ -63,8 +63,8 @@ function RewardTable() {
 function BonusRewards() {
   return (
     <div className="w-full mt-6">
-      <div className="border-t border-white/10 pt-4 mb-3">
-        <p className="text-white/40 text-[11px] font-semibold tracking-wide">
+      <div className="border-t-2 border-black/10 dark:border-white/30 pt-4 mb-3">
+        <p className="text-black/40 dark:text-white/40 text-[11px] font-semibold tracking-wide">
           BONUS REWARDS
         </p>
       </div>
@@ -72,12 +72,12 @@ function BonusRewards() {
         {bonusRewards.map((item) => (
           <div
             key={item.referrals}
-            className="flex min-h-[76px] flex-col items-center justify-center gap-1 rounded-lg bg-white/5 px-4 py-4 text-center sm:min-h-[92px] sm:px-5"
+            className="flex min-h-[76px] flex-col items-center justify-center gap-1 rounded-lg bg-black/[0.03] dark:bg-white/9 px-4 py-4 text-center sm:min-h-[92px] sm:px-5"
           >
-            <p className="text-white/50 text-[11px] sm:text-xs">
+            <p className="text-black/50 dark:text-white/50 text-[11px] sm:text-xs">
               {item.referrals}
             </p>
-            <p className="text-white text-base sm:text-lg font-bold">
+            <p className="text-black dark:text-white text-base sm:text-lg font-bold">
               {item.amount}
             </p>
           </div>
@@ -94,9 +94,9 @@ function FooterCards() {
       {footerNotes.map((note) => (
         <div
           key={note}
-          className="flex min-h-[64px] items-center justify-center rounded-lg bg-white/5 px-4 py-4 text-center sm:min-h-[76px] sm:px-5"
+          className="flex min-h-[64px] items-center justify-center rounded-lg bg-black/[0.03] dark:bg-white/9 px-4 py-4 text-center sm:min-h-[76px] sm:px-5"
         >
-          <p className="text-white/60 text-xs sm:text-sm leading-snug">
+          <p className="text-black/60 dark:text-white/60 text-xs sm:text-sm leading-snug">
             {note}
           </p>
         </div>
@@ -108,20 +108,20 @@ function FooterCards() {
 /* ---------- Main Section ---------- */
 export default function ShareRewardSection() {
   return (
-    <section className="bg-black text-white py-16 px-5 md:px-10 lg:px-16">
+    <section className="text-black dark:text-white py-16 px-5 md:px-10 lg:px-16">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Heading - always centered on top */}
         <div className="text-center mb-8">
           <h2 className="text-[36px] md:text-[40px] xl:text-[60px] font-medium leading-tight">
-            <span className="text-white/30 block">
+            <span className="text-black/30 dark:text-white/30 block">
               Share Lemvest,
             </span>
-            <span className="text-white">get rewarded</span>
+            <span className="text-black dark:text-white">get rewarded</span>
           </h2>
         </div>
 
         {/* Card wrapper */}
-        <div className="w-full border border-white/10 rounded-2xl p-6 md:p-8 lg:p-12">
+        <div className="w-full dark:border-2  dark:border-white/30 rounded-2xl p-6 md:p-8 lg:p-12">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-14">
             {/* Left side text + button (desktop only in this position) */}
             <div className="hidden lg:flex flex-col justify-center items-center w-[240px] shrink-0 text-center gap-5">

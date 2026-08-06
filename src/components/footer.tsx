@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-white/10">
+    <footer className="w-full border-t border-black/10 dark:border-white/10">
       <div
         className="
           mx-auto
@@ -16,7 +16,7 @@ export default function Footer() {
             text-center
             text-xs
             sm:text-sm
-            text-white/70
+            text-black/70 dark:text-white/70
           "
         >
           © 2026 Lemvest. All rights reserved.

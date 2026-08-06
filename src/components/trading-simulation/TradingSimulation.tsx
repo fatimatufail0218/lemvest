@@ -25,7 +25,7 @@ const tradeStats = [
 
 export default function TradingSimulation() {
   return (
-    <section className="bg-[#000] py-16 sm:py-20 lg:py-28">
+    <section className="bg-white dark:bg-black py-16 sm:py-20 lg:py-28">
       <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Simulate your trading results"
@@ -36,11 +36,11 @@ export default function TradingSimulation() {
 
         {/* Simulation results divider */}
         <div className="mt-10 flex items-center gap-4 sm:mt-12 lg:mt-16">
-          <span className="h-px flex-1 bg-white/10" />
-          <span className="text-xs font-medium uppercase tracking-widest text-zinc-400 sm:text-sm">
+          <span className="h-px flex-1 bg-black/10 dark:bg-white/10" />
+          <span className="text-xs font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400 sm:text-sm">
             Simulation Results
           </span>
-          <span className="h-px flex-1 bg-white/10" />
+          <span className="h-px flex-1 bg-black/10 dark:bg-white/10" />
         </div>
 
         {/* Bottom section — pure flexbox, no grid */}
@@ -70,26 +70,26 @@ export default function TradingSimulation() {
           {/* CENTER — result card */}
           <ResultCard className="justify-between gap-2 md:gap-10 xl:gap-2.5 min-w-0 lg:basis-[26%]">
             <div>
-              <div className="text-xs uppercase tracking-wide text-zinc-400">
+              <div className="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
                 Estimated Result
               </div>
-              <div className="mt-2 text-3xl font-semibold text-[#6CF5C2] sm:text-4xl">
+              <div className="mt-2 text-3xl font-semibold text-(--accent) sm:text-4xl">
                 +1,900 $
               </div>
             </div>
 
-            <div className="border-t border-white/[0.08] pt-4 xl:pt-9">
-              <div className="text-xs uppercase tracking-wide text-zinc-400">
+            <div className="border-t border-black/10 dark:border-white/[0.08] pt-4 xl:pt-9">
+              <div className="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
                 Final Capital
               </div>
-              <div className="mt-2 text-2xl font-semibold text-white sm:text-3xl">
+              <div className="mt-2 text-2xl font-semibold text-black dark:text-white sm:text-3xl">
                 2,900 $
               </div>
             </div>
 
-            <div className="flex items-center gap-2 rounded-xl bg-[#2A483B] px-2 py-3 font-normal text-black text-[12px]">
-              <TrendingUp className="h-4 w-4 shrink-0 text-[#6AFFBD]" />
-              <h3 className="text-[#6AFFBD]">An increase of +190.0% on your initial capital</h3>
+            <div className="flex items-center gap-2 rounded-xl bg-(--accent)/10 dark:bg-[#2A483B] px-2 py-3 font-normal text-[12px]">
+              <TrendingUp className="h-4 w-4 shrink-0 text-(--accent)" />
+              <h3 className="text-(--accent)">An increase of +190.0% on your initial capital</h3>
             </div>
           </ResultCard>
 

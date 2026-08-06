@@ -11,13 +11,12 @@ export default function Button({
 }: ButtonProps) {
   return (
     <div className="relative inline-flex">
-      {/* detached gradient ring — replicates outline + outline-offset, but with gradient support */}
       <span
         aria-hidden="true"
         className="absolute -inset-[6px] rounded-[14px] pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(135deg, #6AFFBD 0%, #6E6E6E 45%, #0A0A0A 100%)",
+            "linear-gradient(135deg, var(--accent) 0%, var(--button-border-mid) 45%, var(--button-border-end) 100%)",
           WebkitMask:
             "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
           WebkitMaskComposite: "xor",
@@ -34,19 +33,20 @@ export default function Button({
           px-[24px]
           py-[14px]
           rounded-[8px]
-          bg-[#6AFFBD]
-          text-black
+          bg-(--accent)
+          text-(--accent-foreground)
           font-extrabold
           whitespace-nowrap
+          cursor-pointer
           transition-all
           duration-300
           ease-out
-          hover:shadow-[0_0_32px_8px_rgba(106,255,189,0.55)]
+          hover:shadow-[0_0_32px_8px_color-mix(in_srgb,var(--accent)_55%,transparent)]
           active:scale-[0.97]
           focus-visible:outline
           focus-visible:outline-1
           focus-visible:outline-offset-1
-          focus-visible:outline-[#6AFFBD]
+          focus-visible:outline-(--accent)
           ${className}
         `}
         {...props}
