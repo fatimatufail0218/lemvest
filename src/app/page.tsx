@@ -146,7 +146,7 @@ export default function Home() {
     <div>
       <Navbar/>
       {/* -------------------------------------------------------------section 1-------------------------------------------------------------------------- */}
-<section className="relative overflow-hidden h-[110vh] md:min-h-[120vh] py-16 md:py-24 lg:py-28 xl:py-[7.5rem]">
+<section className="relative overflow-hidden h-[80vh] dark:h-[110vh] md:min-h-[120vh] py-16 md:py-24 lg:py-28 xl:py-[7.5rem]">
   {/* Light mode mein koi bg image nahi — sirf dark mein dikhta hai */}
   <div className="absolute inset-0 hidden dark:block">
     <Image
