@@ -204,7 +204,7 @@ export default function Home() {
       </div>
 
       {/* ---------------------------------------------------middle content----------------------------------------- */}
-      <div className="flex min-w-0 flex-1 flex-col items-center justify-start max-w-[400px] sm:max-w-[480px] md:max-w-[560px] lg:max-w-[700px] xl:max-w-[1200px] mx-auto px-2 sm:px-4 md:px-6 lg:px-10 xl:px-40 text-center mt-30 md:mt-20 2xl:pt-40">
+      <div className="flex min-w-0 flex-1 flex-col items-center justify-start max-w-[400px] sm:max-w-[480px] md:max-w-[560px] lg:max-w-[700px] xl:max-w-[1200px] mx-auto px-2 sm:px-4 md:px-6 lg:px-10 xl:px-40 text-center mt-30 md:mt-20 2xl:mt-25">
         <h1 className="text-black/30 dark:text-white/30 text-[36px] md:text-[35px] lg:text-[42px] xl:text-[60px] font-medium leading-[100%] lg:max-w-[450px] xl:max-w-[580px] ">
           You don't need to do more{" "}
           <span className="text-black dark:text-white">- You need a better system</span>
