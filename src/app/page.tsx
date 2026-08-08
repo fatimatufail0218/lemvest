@@ -38,7 +38,7 @@ const cards = [
     title: "Student",
     description:
       "Take advantage of your free time to develop a skill that offers significant added value. Learn to invest wisely and gradually build a new source of income while preparing for your future.",
-    image: "/student.webp",
+    image: "/student.svg",
     lightImage: "/student-light.webp",
     alt: "Illustration of a laptop, stacked books and a coffee cup",
   },
@@ -47,7 +47,7 @@ const cards = [
     title: "Employee",
     description:
       "Don't rely solely on your salary. Learn how to make your money work for you through smart investing, and develop skills that let you generate additional income over the long term.",
-    image: "/employee(1).webp",
+    image: "/employee.svg",
     lightImage: "/employee-light.webp",
     alt: "Illustration of a briefcase, a clock and a growth chart",
   },
@@ -56,7 +56,7 @@ const cards = [
     title: "On Your Own",
     description:
       "Whether you're already passionate about the financial markets or an entrepreneur in another field, join a comprehensive investment ecosystem that lets you diversify your income, build your skills, and accelerate your financial growth.",
-    image: "/on-your-own.webp",
+    image: "/on-your-own.svg",
     lightImage: "/on-your-own-light.webp",
     alt: "Illustration of coins, a building and a savings vault",
   },
@@ -146,7 +146,7 @@ export default function Home() {
     <div>
       <Navbar/>
       {/* -------------------------------------------------------------section 1-------------------------------------------------------------------------- */}
-<section className="relative overflow-hidden h-[80vh] dark:h-[110vh] md:min-h-[120vh] py-16 md:py-24 lg:py-28 xl:py-[7.5rem]">
+<section id="home" className="relative overflow-hidden h-[110vh] md:min-h-[120vh] py-16 md:py-24 lg:py-28 xl:py-[7.5rem]">
   {/* Light mode mein koi bg image nahi — sirf dark mein dikhta hai */}
   <div className="absolute inset-0 hidden dark:block">
     <Image
@@ -154,14 +154,14 @@ export default function Home() {
       fill
       alt=""
       priority
-      className="object-cover object-top"
+      className="object-cover object-[center_top]"
     />
   </div>
 
   <div className="relative z-10 h-full xl:px-10 md:px-9 px-4 max-w-[1400px] mx-auto -translate-y-[50px]">
     <div className="flex h-full items-stretch justify-between">
       {/* --------------------------------------------left cards------------------------------------------- */}
-      <div className="hidden shrink-0 flex-col justify-around pt-10 pb-6 md:pt-16 md:pb-10 lg:pt-20 lg:pb-14 xl:pt-24 xl:pb-20 md:flex">
+      <div className="hidden shrink-0 flex-col justify-around  pb-6  md:pb-10 lg:pb-14 xl:pt-24 xl:pb-20 md:flex">
         <Card
           icon={<svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
                       <g clipPath="url(#clip0_256_965)">
@@ -178,6 +178,7 @@ export default function Home() {
                       className="-rotate-6 -translate-y-[40%] lg:-translate-y-[60%]"
           title="Daily Opportunities"
           pinSrc="/pin.webp"
+          pinRotation={-1}
         />
 
         <Card
@@ -198,16 +199,17 @@ export default function Home() {
                       className="rotate-6"
           title="Live Sessions"
           pinSrc="/pin.webp"
+          pinRotation={-85}
         />
       </div>
 
       {/* ---------------------------------------------------middle content----------------------------------------- */}
-      <div className="flex min-w-0 flex-1 flex-col items-center justify-start max-w-[400px] sm:max-w-[480px] md:max-w-[560px] lg:max-w-[700px] xl:max-w-[1200px] mx-auto px-2 sm:px-4 md:px-6 lg:px-10 xl:px-40 text-center pt-30">
+      <div className="flex min-w-0 flex-1 flex-col items-center justify-start max-w-[400px] sm:max-w-[480px] md:max-w-[560px] lg:max-w-[700px] xl:max-w-[1200px] mx-auto px-2 sm:px-4 md:px-6 lg:px-10 xl:px-40 text-center mt-30 md:mt-20 2xl:pt-40">
         <h1 className="text-black/30 dark:text-white/30 text-[36px] md:text-[35px] lg:text-[42px] xl:text-[60px] font-medium leading-[100%] lg:max-w-[450px] xl:max-w-[580px] ">
           You don't need to do more{" "}
           <span className="text-black dark:text-white">- You need a better system</span>
         </h1>
-        <h4 className="text-black/70 dark:text-white/70 pt-2 text-[12px] md:text-[14px] xl:text-[16px]">
+        <h4 className="text-black/70 dark:text-white/70 pt-5 text-[12px] md:text-[14px] xl:text-[16px]">
           Whatever your level of experience, Lemvest helps you to learn, improve and grow financially through a comprehensive trading ecosystem.
         </h4>
         <div className="pt-6">
@@ -215,7 +217,7 @@ export default function Home() {
         </div>
 
         {/* --------------------------------------------chip-------------------------------------------- */}
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
           <Chip icon={<svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
                       <g clipPath="url(#clip0_256_965)">
                       <path d="M18.8086 3.29611L19.2964 7.93722M9.52637 4.27171L10.0142 8.91281" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -273,7 +275,7 @@ export default function Home() {
       </div>
 
       {/* -------------------------------------------------right cards------------------------------------------------- */}
-      <div className="hidden shrink-0 flex-col justify-around pt-10 pb-6 md:pt-16 md:pb-10 lg:pt-20 lg:pb-14 xl:pt-24 xl:pb-20 md:flex">
+      <div className="hidden shrink-0 flex-col justify-around pb-6 md:pb-10 lg:pb-14 xl:pt-24 xl:pb-20 md:flex">
         <Card
                     icon={<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
                       <g clipPath="url(#clip0_256_935)">
@@ -289,6 +291,7 @@ export default function Home() {
                       className="rotate-6 -translate-y-[40%] lg:-translate-y-[60%]"
                     title="Strategies"
                     pinSrc="/pin.webp"
+                    pinRotation={-85}
                   />
 
                   <Card
@@ -304,6 +307,7 @@ export default function Home() {
                       className="-rotate-6"
                     title="AI Tools"
                     pinSrc="/pin.webp"
+                    pinRotation={0}
                   />
       </div>
     </div>
@@ -314,10 +318,10 @@ export default function Home() {
 
       {/* -------------------------------------------------------------------------section 2-------------------------------------------------------------------------- */}
 
-<section className="">
-  <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
+<section className="-translate-y-40 md:-translate-y-30">
+  <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 ">
     {/* Top row: heading + paragraph, button (tablet/desktop only) */}
-    <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
+    <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
       <div className="max-w-[300px] lg:max-w-[500px]">
         <h1 className="text-[36px] lg:text-[60px] font-medium text-black/50 dark:text-white/70 leading-none">
           Lemvest is for you <span className="text-black dark:text-white">if your are...</span>
@@ -325,13 +329,13 @@ export default function Home() {
       </div>
 
       {/* Desktop/tablet button — hidden on mobile, relocated below the grid instead */}
-      <div className="hidden shrink-0 sm:block">
+      <div className="hidden shrink-0 sm:block mt-5 mr-1">
         <Button>Join Lemvest</Button>
       </div>
     </div>
 
     {/* Cards grid — everything inline, no separate Card component */}
-    <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-3 sm:gap-6 lg:mt-14 lg:grid-cols-3 lg:gap-8">
+    <div className="mt-10 grid grid-cols-1 gap-4 lg:gap-6 sm:mt-12 sm:grid-cols-3 lg:mt-14 lg:grid-cols-3">
       {cards.map((card) => (
         <div
           key={card.id}
@@ -339,7 +343,7 @@ export default function Home() {
             flex h-full flex-col justify-between
             rounded-2xl border border-black/5 dark:border-white/10
             bg-black/[0.03] dark:bg-white/[0.09]
-            p-6 sm:p-7 lg:p-8
+             
             transition-colors duration-300
             hover:border-[#17438D]
             dark:hover:border-emerald-400/30
@@ -348,15 +352,15 @@ export default function Home() {
           "
         >
           <div>
-            <h3 className="text-lg sm:text-xl font-semibold text-black dark:text-white">
+            <h3 className="pt-4 px-4 md:px-2 lg:px-4 text-xl font-semibold text-black dark:text-white">
               {card.title}
             </h3>
-            <p className="mt-3 text-sm sm:text-[15px] leading-relaxed text-black/60 dark:text-white/60">
+            <p className="mt-3 px-4 md:px-2 lg:px-4 text-sm md:text-[12px] lg:text-[15px] leading-relaxed text-black/60 dark:text-white/60">
               {card.description}
             </p>
           </div>
 
-          <div className="mt-8 sm:mt-10">
+          <div className="mt-2 px-2 md:px-2 lg:px-2 pb-2">
             {/* Light mode illustration */}
             <Image
               src={card.lightImage}
@@ -388,64 +392,163 @@ export default function Home() {
 </section>
   
 
-   {/* ---------------------------------------------------------------section 3------------------------------------------------------------------------------- */}
+  {/* ---------------------------------------------------------------section 3------------------------------------------------------------------------------- */}
 
- <section id="services" className="py-16 sm:py-20 lg:py-28">
-    <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
-      <h2 className="text-center text-[36px] font-medium text-black/40 dark:text-white/40 md:text-[40px] xl:text-[60px] max-w-[500px] xl:max-w-[600px] leading-none mx-auto">
-        Much more than just {" "} <span className="text-black dark:text-white">a trading group</span> 
-      </h2>
+<section id="services" className="py-16 sm:py-20 lg:py-28">
+  {/* Container ab nav ke exact spec se match hai — pehle max-w-[1200px] tha
+      jo nav ke max-w-[1400px] se alag tha, isi wajah se cards nav ke
+      "Join for free" button se aage overflow ho rahe thay */}
+  <div className="mx-auto w-full max-w-[1200px] px-4 md:px-9 xl:px-10">
+    {/* Weight ab font-semibold (pehle font-medium tha) — QA ne yehi flag kiya tha */}
+    <h2 className="text-center text-[32px] font-medium text-black/40 dark:text-white/40 md:text-[40px] xl:text-[56px] max-w-[500px] xl:max-w-[550px] leading-none mx-auto">
+      Much more than just <span className="text-black dark:text-white"><br /> a trading group</span>
+    </h2>
 
-      {/* Dark mode desktop: static grid — first 6 items span 2/6 cols (3 per row),
-          last 2 items span 3/6 cols (2 per row), row 3 cards are taller */}
-      <div className="mt-10 hidden dark:md:grid md:grid-cols-4 lg:grid-cols-6 md:gap-6 lg:mt-14 lg:gap-8">
-        {cards2.map((card, index) => {
-          const isWideRow = index >= 6; // last 2 cards → taller row
-          return (
-            <div
-              key={card.id}
-              className={`${
-                isWideRow ? "md:col-span-2 lg:col-span-3" : "md:col-span-2 lg:-col-span-2"
-              } ${
-                isWideRow
-                  ? "md:h-[386px] lg:h-[420px] xl:h-[445px]"
-                  : "md:h-[300px] lg:h-[326px] xl:h-[346px]"
-              } flex flex-col rounded-2xl border border-white/5 bg-[#191919] transition-colors duration-300 hover:border-emerald-400/30`}
-            >
-              <div className="relative m-4 flex-1 overflow-hidden rounded-xl sm:m-5">
-                <Image
-                  src={card.image}
-                  alt={card.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1280px) 380px, (min-width: 1024px) 320px, (min-width: 768px) 260px, 85vw"
-                />
-              </div>
+    {/*
+      Dark mode desktop: FLEXBOX (not grid).
+      - flex-wrap: forces exactly 3-per-row (row 1/2) then 2-per-row (row 3),
+        purely from each card's own basis %, no manual row-grouping.
+      - items-stretch: THIS is what makes cards 1-3 equal height, and cards
+        4-6 equal height, independently — a wrapped flex container stretches
+        each wrapped LINE to its own tallest item automatically, no JS.
+      - Gap reduced at md/lg (tighter "desktop-but-not-1440" spacing), opens
+        up to the Figma-matching 24px only at xl+.
+    */}
+    {/* Desktop cards */}
+<div className="mt-10 hidden dark:md:flex md:flex-col md:gap-4">
 
-              <div className="flex flex-col gap-2 px-5 pb-5 sm:px-6 sm:pb-6">
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-white sm:text-base">
-                  {card.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-white/60">
-                  {card.description}
-                </p>
-              </div>
-            </div>
-          );
-        })}
+  {/* ================= ROW 1 ================= */}
+  <div className="flex items-stretch gap-4">
+    {cards2.slice(0, 3).map((card) => (
+      <div
+        key={card.id}
+        className="
+          flex min-w-0 flex-1 flex-col
+          overflow-hidden rounded-2xl
+          border border-white/5
+          bg-[#191919]
+          transition-colors duration-300
+          hover:border-emerald-400/30
+        "
+      >
+        {/* Image */}
+        <div className="relative mx-3 mt-3 aspect-[4/3] shrink-0 overflow-hidden rounded-xl">
+          <Image
+            src={card.image}
+            alt={card.alt}
+            fill
+            className="object-contain"
+            sizes="(min-width: 1280px) 380px, (min-width: 1024px) 320px, 30vw"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-1 flex-col gap-2 px-3 pb-5 pt-3 lg:px-5 lg:pb-5">
+          <h3 className="text-sm font-medium uppercase text-white md:text-[20px] xl:text-[24px]">
+            {card.title}
+          </h3>
+
+          <p className=" text-[10px] lg:text-sm leading-relaxed text-white/60">
+            {card.description}
+          </p>
+        </div>
       </div>
+    ))}
+  </div>
 
-      {/* Mobile at every theme, and desktop in light mode: carousel */}
-      <div className="mt-10 block dark:md:hidden">
-        <CardsCarousel cards={cards2} />
-      </div>
 
-      {/* Join Lemvest — hamesha grid/carousel k neeche, har breakpoint pe */}
-      <div className="mt-10 flex justify-center sm:mt-12 lg:mt-14">
-        <Button>Join Lemvest</Button>
+  {/* ================= ROW 2 ================= */}
+  <div className="flex items-stretch gap-4">
+    {cards2.slice(3, 6).map((card) => (
+      <div
+        key={card.id}
+        className="
+          flex min-w-0 flex-1 flex-col
+          overflow-hidden rounded-2xl
+          border border-white/5
+          bg-[#191919]
+          transition-colors duration-300
+          hover:border-emerald-400/30
+        "
+      >
+        {/* Image */}
+        <div className="relative mx-3 mt-3 aspect-[16/9] shrink-0 overflow-hidden rounded-xl">
+          <Image
+            src={card.image}
+            alt={card.alt}
+            fill
+            className="object-contain"
+            sizes="(min-width: 1280px) 380px, (min-width: 1024px) 320px, 30vw"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-1 flex-col gap-2 px-3 pb-5 pt-3 lg:px-5 lg:pb-5">
+          <h3 className="text-sm font-medium uppercase tracking-wide text-white md:text-[20px] xl:text-[24px]">
+            {card.title}
+          </h3>
+
+          <p className="text-[10px] xl:text-sm leading-relaxed text-white/60">
+            {card.description}
+          </p>
+        </div>
       </div>
+    ))}
+  </div>
+
+
+  {/* ================= ROW 3 ================= */}
+  <div className="flex items-stretch gap-4 ">
+    {cards2.slice(6, 8).map((card) => (
+      <div
+        key={card.id}
+        className="
+          flex min-w-0 flex-1 flex-col
+          overflow-hidden rounded-2xl
+          border border-white/5
+          bg-[#191919]
+          transition-colors duration-300
+          hover:border-emerald-400/30
+        "
+      >
+        {/* Image */}
+        <div className="relative mx-3 mt-3 aspect-[16/10] shrink-0 overflow-hidden rounded-xl">
+          <Image
+            src={card.image}
+            alt={card.alt}
+            fill
+            className="object-contain"
+            sizes="(min-width: 1280px) 580px, 45vw"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-1 flex-col gap-2 px-5 pb-5 pt-3 lg:px-6 lg:pb-6">
+          <h3 className="text-sm font-medium uppercase tracking-wide text-white md:text-[20px] xl:text-[24px]">
+            {card.title}
+          </h3>
+
+          <p className="text-[10px] xl:text-sm leading-relaxed text-white/60">
+            {card.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+</div>
+
+    {/* Mobile at every theme, and desktop in light mode: carousel */}
+    <div className="mt-10 block dark:md:hidden">
+      <CardsCarousel cards={cards2} />
     </div>
-  </section>
+
+    {/* Join Lemvest — hamesha grid/carousel k neeche, har breakpoint pe */}
+    <div className="mt-10 flex justify-center sm:mt-12 lg:mt-14">
+      <Button>Join Lemvest</Button>
+    </div>
+  </div>
+</section>
 
 {/* --------------------------------------------------------------------section 4------------------------------------------------------- */}
 <section id="lemvestAI" className="min-h-auto">
@@ -454,13 +557,13 @@ export default function Home() {
 
 {/* -------------------------------- Section 5 -------------------------------- */}
 <section className="py-16 sm:py-20 lg:py-28">
-  <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
+  <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 ">
     <h2 className="text-center font-aeonik font-medium tracking-tight text-black dark:text-white text-[36px] lg:text-[40px] xl:text-[60px]">
       Free but precious
     </h2>
  
     {/* 2 cols on mobile, 3 cols from md up */}
-    <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 md:gap-6 lg:mt-14 lg:gap-7">
+    <div className="mt-10 grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-3 lg:mt-12 lg:gap-4">
       {featureCards.map((card) => {
         const Icon = card.icon;
         return (
@@ -487,14 +590,31 @@ export default function Home() {
  
 {/* -------------------------------- Section 6 -------------------------------- */}
 <section className="pb-16 sm:pb-20 lg:pb-28">
-  <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
-    <div className="mx-auto grid max-w-[900px] grid-cols-1 gap-4 sm:gap-5 md:grid-cols-[1fr_2fr] md:gap-6 md:h-[250px]">
+  <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto grid max-w-[1000px] grid-cols-1 gap-3 md:grid-cols-[1fr_2fr] md:gap-4 md:h-auto">
       {/* Highlighted guarantee card - narrower */}
-      <div className="flex flex-col items-center justify-center gap-5 rounded-2xl bg-(--accent) p-8 text-center sm:p-10 md:h-full">
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-(--accent-foreground) text-(--accent)">
-          <ShieldCheck className="h-7 w-7" strokeWidth={2} />
-        </span>
-        <h3 className="font-aeonik text-xl font-semibold leading-snug text-(--accent-foreground) sm:text-2xl">
+      <div className="flex flex-col items-center justify-center gap-3 rounded-2xl bg-(--accent) py-8 text-center md:h-full">
+        
+<>
+  {/* Light Mode */}
+  <img
+    src="/tick-light.svg"
+    alt="Tick"
+    width={36}
+    height={36}
+    className="block dark:hidden"
+  />
+
+  {/* Dark Mode */}
+  <img
+    src="/tick.svg"
+    alt="Tick"
+    width={36}
+    height={36}
+    className="hidden dark:block"
+  />
+</>
+        <h3 className="font-aeonik text-[17px] md:text-[21px] xl:text-[26px] font-medium leading-none text-(--accent-foreground)">
           Invest with Greater
           <br />
           peace of mind
@@ -502,18 +622,17 @@ export default function Home() {
       </div>
  
       {/* Dark text card - wider */}
-      <div className="flex items-center justify-center rounded-2xl border border-black/10 dark:border-white/[0.08] bg-black/[0.03] dark:bg-[#141414] p-8 text-center sm:p-10 md:h-full">
-        <p className="font-aeonik text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-base sm:leading-loose">
+      <div className="flex flex-col items-center justify-center rounded-2xl border border-black/10 dark:border-white/[0.08] bg-black/[0.03] dark:bg-[#141414] py-6 px-6 text-center md:h-full">
+        <p className="font-aeonik max-w-[400px] font-normal text-sm xl:text-[16px] text-zinc-600 dark:text-white">
           When you join Lemvest, you&apos;re eligible for a 5-day
-          money-back guarantee.
+          money-back guarantee.</p>
+          <p className="">
           <br className="hidden sm:block" />
           If you follow our advice correctly, participate in our live
-          sessions,
-          <br className="hidden sm:block" />
+          sessions, <br />
           or take our training courses, and you incur a loss on your{" "}
-          initial investment,
-          <br className="hidden sm:block" />
-          <span className="font-semibold text-black dark:text-white">
+          initial investment, <br />
+          <span className="font-bold text-black dark:text-white">
             we&apos;ll reimburse you for that loss during your first 5
             days.
           </span>

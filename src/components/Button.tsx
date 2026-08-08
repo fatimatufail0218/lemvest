@@ -30,8 +30,8 @@ export default function Button({
           inline-flex
           items-center
           justify-center
-          px-[24px]
-          py-[14px]
+          px-[16px]
+          py-[9px]
           rounded-[8px]
           bg-(--accent)
           text-(--accent-foreground)
