@@ -17,7 +17,7 @@ export default function ChartCard({ className = "" }: ChartCardProps) {
   return (
     <ResultCard className={`gap-4 ${className}`}>
       {/* Chart image + stats: stacked on mobile, side-by-side from md up */}
-      <div className="flex flex-1 flex-col gap-6 md:flex-row md:items-stretch">
+      <div className="flex flex-1 flex-col gap-4 md:flex-row md:items-stretch">
         <div className="relative aspect-[10/7] w-full min-w-0 md:aspect-auto md:h-auto md:flex-[3]">
           {/* Light mode chart */}
           <Image
@@ -41,7 +41,7 @@ export default function ChartCard({ className = "" }: ChartCardProps) {
           {statsRows.map((row) => (
             <div
               key={row.label}
-              className="flex items-center justify-between border-b border-black/5 dark:border-white/[0.06] py-3 text-sm last:border-b-0"
+              className="flex items-center justify-between border-b border-black/5 dark:border-white/[0.06] lg:py-[7px] xl:py-2.5 text-sm last:border-b-0"
             >
               <span className="text-zinc-500 dark:text-zinc-400">{row.label}</span>
               <span className={`font-medium ${row.valueColor}`}>{row.value}</span>

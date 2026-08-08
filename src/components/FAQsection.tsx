@@ -54,8 +54,8 @@ const faqs = [
 
 export default function FaqSection() {
   return (
-    <section className="pb-16">
-      <div className="mx-auto w-full max-w-[640px] px-4 sm:px-6">
+    <section className="pb-16 px-2">
+      <div className="mx-auto w-full max-w-[640px] px-[1px]">
         <h2 className="text-center font-medium leading-none text-black/50 dark:text-white/70 text-[36px] lg:text-[60px]">
           Frequently asked {" "} <br /><span className="text-black dark:text-white">questions</span> 
         </h2>
@@ -64,7 +64,7 @@ export default function FaqSection() {
           type="single"
           collapsible
           defaultValue="item-1"
-          className="mt-10 flex flex-col gap-3 sm:gap-4 lg:mt-14"
+          className="mt-10 flex flex-col gap-3 lg:mt-10"
         >
           {faqs.map((faq) => (
             <AccordionItem key={faq.id} value={faq.id}>
@@ -79,7 +79,7 @@ export default function FaqSection() {
           <div className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-[#6CF5C2]/40 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-[#6CF5C2]/40 blur-3xl" />
 
-          <div className="relative flex flex-col items-start gap-4 text-left sm:gap-5">
+          <div className="relative flex flex-col max-w-[270px] items-start gap-4 text-left sm:gap-5">
             <h5 className="text-2xl font-medium text-black/80 dark:text-white/80">
               Can&apos;t find the answer to your question?
               <br />

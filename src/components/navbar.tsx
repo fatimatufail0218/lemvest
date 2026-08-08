@@ -35,7 +35,9 @@ const Navbar = () => {
           }
         });
       },
-      { threshold: 0.55 }
+      { threshold: 0,
+        rootMargin: "-45% 0px -45% 0px",
+       }
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -62,16 +64,16 @@ const Navbar = () => {
   <Image
     src="/logo-b.webp"
     alt="Logo"
-    width={120}
-    height={24}
+    width={157}
+    height={35}
     className="hidden dark:md:block"
   />
   {/* Desktop logo — light mode: sirf md+ AND light, ek hi compound rule */}
   <Image
     src="/logo-w.webp"
     alt="Logo"
-    width={120}
-    height={24}
+    width={157}
+    height={35}
     className="hidden light:md:block"
   />
 
